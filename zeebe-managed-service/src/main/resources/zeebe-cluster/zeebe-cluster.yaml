@@ -1,0 +1,20 @@
+apiVersion: "sample.javaoperatorsdk/v1"
+kind: WebPageResource
+metadata:
+  # Use labels to match the resource with different reconciler implementations:
+  # labels:
+  #    low-level: "true"
+  name: hellows
+  namespace: ibd-dev
+spec:
+  exposed: false
+  html: |
+    <html>
+      <head>
+        <title>Hello Operator World</title>
+      </head>
+      <body>
+        Hello World From my operator! Great 2
+      </body>
+    </html>
+    

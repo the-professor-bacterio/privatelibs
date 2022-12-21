@@ -1,0 +1,16 @@
+stages:          # List of stages for jobs, and their order of execution
+  - build
+variables:
+  REALM:
+    value: "<realm>"
+    description: Realm Name
+
+build-job:
+  stage: build
+  rules:
+    - if: '$REALM == "<realm>"'
+  image: maven:3.8.3-openjdk-17
+  script:
+    - echo "Compiling the code..."
+    - source ./scripts/mvn.sh
+    - maven clean deploy -Pgitlab -s ci-settings.xml

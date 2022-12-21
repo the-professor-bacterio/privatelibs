@@ -1,0 +1,3 @@
+[[registry]]
+location = "registry:80"
+insecure = true

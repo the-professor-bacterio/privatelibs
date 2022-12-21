@@ -1,0 +1,26 @@
+<settings>
+    <servers>
+        <server>
+            <id>gitlab-maven</id>
+            <configuration>
+                <httpHeaders>
+                    <property>
+                        <!--<name>Job-Token</name>-->
+                        <!--<value>${CI_JOB_TOKEN}</value>-->
+                        <name>Private-Token</name>
+                        <value>KYCTzBzYQErw_zyNxusp</value>
+                    </property>
+                </httpHeaders>
+            </configuration>
+        </server>
+    </servers>
+
+    <mirrors>
+        <mirror>
+            <id>gitlab-maven</id>
+            <mirrorOf>gitlab-maven</mirrorOf>
+            <url>${CI_API_V4_URL}/projects/4/packages/maven</url>
+            <blocked>false</blocked>
+        </mirror>
+    </mirrors>
+</settings>

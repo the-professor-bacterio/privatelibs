@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>home.ny</groupId>
+        <artifactId>private-libs</artifactId>
+        <version>sandbox-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>argo-client</artifactId>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>3.1.0</version>
+                <executions>
+                    <execution>
+                        <id>put-on-target</id>
+                        <phase>pre-integration-test</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target name="Copy webjar to target">
+                                <echo message="file=${project.build.directory}/../src/test/resources/${project.artifactId}.jar"/>
+                                <echo message="tofile=${project.build.directory}/${project.artifactId}-${project.version}.jar"/>
+                                <copy
+                                    file="${project.build.directory}/../src/test/resources/${project.artifactId}.jar"
+                                    tofile="${project.build.directory}/${project.artifactId}-${project.version}.jar"
+                                    overwrite="true"
+                                />
+                            </target>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

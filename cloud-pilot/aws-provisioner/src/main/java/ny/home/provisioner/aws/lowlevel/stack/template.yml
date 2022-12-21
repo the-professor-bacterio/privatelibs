@@ -1,0 +1,30 @@
+---
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'Creates an EC2 instance and an EBS volume'
+
+Parameters:
+  InstanceType:
+    Type: String
+    Default: t2.micro
+    AllowedValues:
+      - t2.micro
+      - t2.small
+      - t2.medium
+    Description: The instance type to use for the EC2 instance
+
+Resources:
+  MyEC2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: !Ref InstanceType
+      ImageId: ami-0ff8a91507f77f867
+      KeyName: my-key-pair
+      SecurityGroupIds:
+        - sg-012345678
+      SubnetId: subnet-012345678
+  MyVolume:
+    Type: AWS::EC2::Volume
+    Properties:
+      Size: 10
+      AvailabilityZone: us-west-2a
+      VolumeType: gp2

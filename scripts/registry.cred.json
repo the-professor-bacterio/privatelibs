@@ -1,0 +1,9 @@
+{
+  "auths": {
+    "registry:80": {
+      "username": "admin",
+      "password": "registry",
+      "email": "sabino.rubio@gmail.com"
+    }
+  }
+}
